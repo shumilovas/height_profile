@@ -2,6 +2,8 @@ import rasterio
 import csv
 import numpy as np
 import os
+import pandas as pd
+import openpyxl
 
 
 def read_tiff_info(file_path):
@@ -209,8 +211,13 @@ def main():
 
     print(f"Получено точек: {len(profile)}")
 
-    output_file = "height_profile.csv"
+    output_file = "height_profile_csv.csv"
     points_saved = save_to_csv(profile, output_file)
+    df = pd.DataFrame(profile)
+    # 3. Сохраняем в Excel
+    # index=False убирает колонку с индексами из файла Excel
+    df.to_excel('height_profile_xl.xlsx', index=False, sheet_name='height_profile')
+    print("Таблица сохранена в файл height_profile.xlsx")
     print(f"Данные сохранены в файл: {output_file}")
 
     print_statistics(profile)
