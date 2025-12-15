@@ -12,6 +12,7 @@ public class Main {
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
         }
+        readDataLineByLine("height_profile.csv");
     }
 
     public static void readDataLineByLine(String file)
