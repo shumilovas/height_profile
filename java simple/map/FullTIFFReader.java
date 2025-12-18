@@ -14,7 +14,7 @@ public class FullTIFFReader {
 
     public static void main(String[] args) {
         try {
-            String filePath = "C:/Users/Ant1dote_7/OneDrive/Рабочий стол/Задание/map/out.tiff";
+            String filePath = "./map/out.tiff";
             File tiffFile = new File(filePath);
 
             if (!tiffFile.exists()) {
