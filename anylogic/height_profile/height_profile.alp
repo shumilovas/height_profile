@@ -16,6 +16,7 @@
 		<ActiveObjectClass>
 			<Id>1765795112067</Id>
 			<Name><![CDATA[Main]]></Name>
+			<Import><![CDATA[import height_profile.*;]]></Import>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1765795112073</Id>
