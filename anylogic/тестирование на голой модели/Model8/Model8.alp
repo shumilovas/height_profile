@@ -18,6 +18,15 @@
 		<ActiveObjectClass>
 			<Id>1766164738345</Id>
 			<Name><![CDATA[Main]]></Name>
+			<Import><![CDATA[import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;]]></Import>
+			<StartupCode><![CDATA[String [] args;
+args =  new String[2];
+args[0] = "argument1";
+args[1] = "argument2";
+ForPy forPy = new ForPy();
+forPy.main2();]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1766164738350</Id>
@@ -355,6 +364,63 @@
 			<BypassInitialScreen>true</BypassInitialScreen>
 		</SimulationExperiment>	
 	</Experiments>
+	<JavaClasses>
+		<!--   =========   Java Class   ========  -->
+		<JavaClass>
+			<Id>1766182263206</Id>
+			<Name><![CDATA[ForPy]]></Name>
+			<Text><![CDATA[import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+
+/**
+ * ForPy
+ */	
+public class ForPy implements Serializable  {
+
+    /**
+     * Конструктор по умолчанию
+     */
+    public ForPy() {
+    }
+
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+	
+	
+
+	/**
+	 * Это число используется при сохранении состояния модели<br>
+	 * Его рекомендуется изменить в случае изменения класса
+	 */ 
+	private static final long serialVersionUID = 1L;
+	
+	 public static void main2 () throws IOException, InterruptedException {
+	        String Script_Path = ".\script.py";
+	        ProcessBuilder Process_Builder = new
+	                                         ProcessBuilder("python",Script_Path)
+	                                         .inheritIO();
+
+	        Process Demo_Process = Process_Builder.start();
+	        Demo_Process.waitFor();
+
+	        BufferedReader Buffered_Reader = new BufferedReader(
+	                                         new InputStreamReader(
+	                                         Demo_Process.getInputStream()
+	                                         ));
+	        String Output_line = "";
+
+	        while ((Output_line = Buffered_Reader.readLine()) != null) {
+	            System.out.println(Output_line);
+	        }
+	    }
+
+}]]></Text>
+		</JavaClass>
+	</JavaClasses>
     <RequiredLibraryReference>
 		<LibraryName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></LibraryName>
 		<VersionMajor>1</VersionMajor>

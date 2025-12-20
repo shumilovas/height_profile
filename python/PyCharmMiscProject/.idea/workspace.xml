@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b8ccbf-c63c-4407-be50-267928289cf4" name="Changes" comment="" />
+    <list default="true" id="29b8ccbf-c63c-4407-be50-267928289cf4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../anylogic/тестирование на голой модели/Model8/script.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -23,7 +28,9 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.script.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/W10/PyCharmMiscProject",
+    "git-widget-placeholder": "добавляемПитон",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/W10/Documents/GitHub/height_profile/anylogic/тестирование на голой модели/Model8",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -35,6 +42,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\W10\Documents\GitHub\height_profile\anylogic\тестирование на голой модели\Model8" />
       <recent name="C:\Users\W10\PyCharmMiscProject" />
     </key>
   </component>
@@ -55,6 +63,7 @@
       <updated>1765623074498</updated>
       <workItem from="1765623080692" duration="1994000" />
       <workItem from="1765795451119" duration="2899000" />
+      <workItem from="1766176242740" duration="4028000" />
     </task>
     <servers />
   </component>
@@ -62,6 +71,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PyCharmMiscProject$script.coverage" NAME="script Coverage Results" MODIFIED="1765800024046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PyCharmMiscProject$script.coverage" NAME="script Coverage Results" MODIFIED="1766181157137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
