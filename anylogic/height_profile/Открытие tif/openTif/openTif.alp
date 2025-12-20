@@ -122,7 +122,43 @@ NotFullReader notFullReader = new NotFullReader();
 				<Variable Class="PlainVariable">
 					<Id>1766163376966</Id>
 					<Name><![CDATA[X_начала]]></Name>
-					<X>180</X><Y>70</Y>
+					<X>160</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1766230484416</Id>
+					<Name><![CDATA[X_конца]]></Name>
+					<X>170</X><Y>210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1766230506513</Id>
+					<Name><![CDATA[Y_начала]]></Name>
+					<X>160</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1766230531048</Id>
+					<Name><![CDATA[Y_конца]]></Name>
+					<X>170</X><Y>250</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -184,10 +220,80 @@ NotFullReader notFullReader = new NotFullReader();
 						<Enabled>true</Enabled>
 					</BasicProperties>
 					<ExtendedProperties>
-						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
+						<DefaultValueCode><![CDATA[1000]]></DefaultValueCode>
 						<Orientation>HORIZONTAL</Orientation>
 						<MinValue><![CDATA[0]]></MinValue>
-						<MaxValue><![CDATA[100]]></MaxValue>
+						<MaxValue><![CDATA[105000]]></MaxValue>
+						<Step><![CDATA[1000]]></Step>
+						<LinkTo>false</LinkTo>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1766230437366</Id>
+					<Name><![CDATA[sliderX2]]></Name>
+					<X>50</X><Y>200</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[1000]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[105000]]></MaxValue>
+						<Step><![CDATA[1000]]></Step>
+						<LinkTo>false</LinkTo>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1766230451659</Id>
+					<Name><![CDATA[sliderY1]]></Name>
+					<X>40</X><Y>100</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[1000]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[105000]]></MaxValue>
+						<Step><![CDATA[1000]]></Step>
+						<LinkTo>false</LinkTo>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1766230469629</Id>
+					<Name><![CDATA[sliderY2]]></Name>
+					<X>50</X><Y>240</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[1000]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[105000]]></MaxValue>
+						<Step><![CDATA[1000]]></Step>
 						<LinkTo>false</LinkTo>
 					</ExtendedProperties>
 				</Control>
@@ -214,6 +320,36 @@ NotFullReader notFullReader = new NotFullReader();
 		<AutoExport>false</AutoExport>
 		<ShutdownCompact>false</ShutdownCompact>
 		<ImportSettings>
+			<ExternalConnection>
+				<Id>1766229672470</Id>
+				<Name><![CDATA[database]]></Name>
+				<X>0</X><Y>0</Y>
+				<Label><X>10</X><Y>0</Y></Label>
+				<PublicFlag>false</PublicFlag>
+				<PresentationFlag>true</PresentationFlag>
+				<ShowLabel>true</ShowLabel>
+				<DatabaseType>EXCEL_ACCESS</DatabaseType>
+				<ConnectionURL><![CDATA[]]></ConnectionURL>
+				<ConnectOnStartup>true</ConnectOnStartup>
+				<DatabaseName><![CDATA[]]></DatabaseName>
+				<ResourceReference>
+					<PackageName><![CDATA[model6]]></PackageName>
+					<ClassName><![CDATA[Лист Microsoft Excel.xlsx]]></ClassName>
+				</ResourceReference>
+				<Host><![CDATA[localhost]]></Host>
+				<JdbcDriverClassName><![CDATA[net.sourceforge.jtds.jdbc.Driver]]></JdbcDriverClassName>
+				<Login><![CDATA[]]></Login>
+				<Password><![CDATA[]]></Password>
+			</ExternalConnection>
+			<TableImportSettings>
+				<TableReference>
+					<PackageName><![CDATA[model6]]></PackageName>
+					<ClassName><![CDATA[лист2]]></ClassName>
+				</TableReference>
+				<ConnectionIndex>0</ConnectionIndex>
+				<ExternalTableName><![CDATA["Лист2"]]></ExternalTableName>
+				<AutoImport>true</AutoImport>
+			</TableImportSettings>
 		</ImportSettings>
 		<ExportSettings>
 		</ExportSettings>
@@ -585,123 +721,18 @@ public class FullTIFFReader implements Serializable {
 		</JavaClass>
 		<!--   =========   Java Class   ========  -->
 		<JavaClass>
-			<Id>1766227299085</Id>
+			<Id>1766229172147</Id>
 			<Name><![CDATA[NotFullReader]]></Name>
 			<Text><![CDATA[/**
  * NotFullReader
  */	
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-
 public class NotFullReader implements Serializable {
-	
-	// Placeholder classes  functionality
-    static class Bounds {
-        double left, right, bottom, top;
 
-        public Bounds(double left, double right, double bottom, double top) {
-            this.left = left;
-            this.right = right;
-            this.bottom = bottom;
-            this.top = top;
-        }
-    }
-
-    static class Transform {
-        // Define transform properties if needed
-    }
-
-    static class RasterData {
-        int width;
-        int height;
-        Bounds bounds;
-        Transform transform;
-        float[][] data;
-
-        public RasterData(int width, int height, Bounds bounds, Transform transform, float[][] data) {
-            this.width = width;
-            this.height = height;
-            this.bounds = bounds;
-            this.transform = transform;
-            this.data = data;
-        }
-    }
     /**
      * Конструктор по умолчанию
      */
     public NotFullReader() {
     }
-    
- // This method should be implemented to read actual TIFF data using a suitable Java library
-    public static RasterData openRaster(String filePath) {
-        // Placeholder implementation
-        return null;
-    }
-
-    public static Map<String, Object> readTiffInfo(String filePath) {
-        RasterData src = openRaster(filePath);
-        if (src == null) {
-            throw new RuntimeException("Failed to open raster file.");
-        }
-
-        Bounds bounds = src.bounds;
-        float[][] data = src.data;
-
-        float minHeight = Float.MAX_VALUE;
-        float maxHeight = -Float.MAX_VALUE;
-        for (int i = 0; i < src.height; i++) {
-            for (int j = 0; j < src.width; j++) {
-                if (data[i][j] < minHeight) {
-                    minHeight = data[i][j];
-                }
-                if (data[i][j] > maxHeight) {
-                    maxHeight = data[i][j];
-                }
-            }
-        }
-
-        Map<String, Object> info = new HashMap<>();
-        info.put("width", src.width);
-        info.put("height", src.height);
-        info.put("bounds", bounds);
-        info.put("min_x", bounds.left);
-        info.put("max_x", bounds.right);
-        info.put("min_y", bounds.bottom);
-        info.put("max_y", bounds.top);
-        info.put("min_height", (double) minHeight);
-        info.put("max_height", (double) maxHeight);
-        info.put("transform", src.transform);
-        // Deep copy of data array
-        float[][] dataCopy = new float[src.height][src.width];
-        for (int i = 0; i < src.height; i++) {
-            System.arraycopy(data[i], 0, dataCopy[i], 0, src.width);
-        }
-        info.put("data", dataCopy);
-
-        return info;
-    }
-
-    public static double[] getCoordinate(String coordName, double min, double max, Scanner scanner) {
-        double coord;
-        while (true) {
-            System.out.print(coordName + " координата: ");
-            String input = scanner.nextLine();
-            try {
-                coord = Double.parseDouble(input);
-                if (coord >= min && coord <= max) {
-                    break;
-                } else {
-                    System.out.printf("Ошибка: %s должен быть между %.1f и %.1f%n", coordName, min, max);
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Ошибка: введите число");
-            }
-        }
-        return new double[]{coord};
-    }
-    
-    
 
 	@Override
 	public String toString() {
@@ -713,85 +744,6 @@ public class NotFullReader implements Serializable {
 	 * Его рекомендуется изменить в случае изменения класса
 	 */ 
 	private static final long serialVersionUID = 1L;
-	
-	public static double[][] getUserCoordinates(Map<String, Object> info) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("\n==================================================");
-        System.out.println("ВВЕДИТЕ КООРДИНАТЫ ДВУХ ТОЧЕК");
-        System.out.println("==================================================");
-
-        System.out.println("\nДиапазон координат файла:");
-        System.out.printf("X: от %.1f до %.1f%n", (double) info.get("min_x"), (double) info.get("max_x"));
-        System.out.printf("Y: от %.1f до %.1f%n", (double) info.get("min_y"), (double) info.get("max_y"));
-
-        System.out.println("\n--- НАЧАЛЬНАЯ ТОЧКА ---");
-        double startX = 0, startY = 0, endX = 0, endY = 0;
-
-        while (true) {
-            System.out.print("X координата: ");
-            String input = scanner.nextLine();
-            try {
-                startX = Double.parseDouble(input);
-                if (startX >= (double) info.get("min_x") && startX <= (double) info.get("max_x")) {
-                    break;
-                } else {
-                    System.out.printf("Ошибка: X должен быть между %.1f и %.1f%n", (double) info.get("min_x"), (double) info.get("max_x"));
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Ошибка: введите число");
-            }
-        }
-
-        while (true) {
-            System.out.print("Y координата: ");
-            String input = scanner.nextLine();
-            try {
-                startY = Double.parseDouble(input);
-                if (startY >= (double) info.get("min_y") && startY <= (double) info.get("max_y")) {
-                    break;
-                } else {
-                    System.out.printf("Ошибка: Y должен быть между %.1f и %.1f%n", (double) info.get("min_y"), (double) info.get("max_y"));
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Ошибка: введите число");
-            }
-        }
-
-        System.out.println("\n--- КОНЕЧНАЯ ТОЧКА ---");
-
-        while (true) {
-            System.out.print("X координата: ");
-            String input = scanner.nextLine();
-            try {
-                endX = Double.parseDouble(input);
-                if (endX >= (double) info.get("min_x") && endX <= (double) info.get("max_x")) {
-                    break;
-                } else {
-                    System.out.printf("Ошибка: X должен быть между %.1f и %.1f%n", (double) info.get("min_x"), (double) info.get("max_x"));
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Ошибка: введите число");
-            }
-        }
-
-        while (true) {
-            System.out.print("Y координата: ");
-            String input = scanner.nextLine();
-            try {
-                endY = Double.parseDouble(input);
-                if (endY >= (double) info.get("min_y") && endY <= (double) info.get("max_y")) {
-                    break;
-                } else {
-                    System.out.printf("Ошибка: Y должен быть между %.1f и %.1f%n", (double) info.get("min_y"), (double) info.get("max_y"));
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Ошибка: введите число");
-            }
-        }
-
-        return new double[][]{{startX, startY}, {endX, endY}};
-    }
 
 }]]></Text>
 		</JavaClass>
@@ -859,6 +811,11 @@ public class NotFullReader implements Serializable {
 		</Resource>
 		<Resource>
 			<Path><![CDATA[imageio/package-info.java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[Лист Microsoft Excel.xlsx]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 			<Location>FILE_SYSTEM</Location>
 		</Resource>
