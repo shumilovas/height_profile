@@ -150,7 +150,7 @@ fullTIFFReader.main1();
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[int]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[100]]></Code>
+							<Code><![CDATA[110]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -180,7 +180,7 @@ fullTIFFReader.main1();
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[int]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[100]]></Code>
+							<Code><![CDATA[110]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -487,6 +487,7 @@ import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 public class FullTIFFReader implements Serializable {
 	private static int[][] fullPixelArray;
+	private static int[][] notfullPixelArray;
     private static int width;
     private static int width_segment;
     private static int height_segment;
@@ -654,10 +655,16 @@ public class FullTIFFReader implements Serializable {
 	        // Данные
 	        int total = (y_end-y_begin) * (x_end - x_begin);
 	        int count = 0;
+	        
+	        notfullPixelArray = new int[(y_end-y_begin) ][(x_end - x_begin)];
+	        int x1  = 0;
+        	int y1 = 0 ;
 
 	        for (int y = y_begin; y < y_end; y++) {
-	            for (int x = x_begin; x < x_end; x++) {
+	        	y1++;
+	            for (int x = x_begin; x < x_end; x++) {	            	
 	                writer.printf("%d;%d;%d%n", x, y, fullPixelArray[y][x]);
+	                notfullPixelArray[x1][y1]= fullPixelArray[y][x];
 	                count++;
 
 	                if (count % 10000 == 0 || count == total) {
