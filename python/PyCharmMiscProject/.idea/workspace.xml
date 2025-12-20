@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29b8ccbf-c63c-4407-be50-267928289cf4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../anylogic/тестирование на голой модели/Model8/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../anylogic/height_profile/Открытие tif/openTif/database/db.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../anylogic/height_profile/Открытие tif/openTif/database/db.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../anylogic/height_profile/Открытие tif/openTif/database/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../anylogic/height_profile/Открытие tif/openTif/database/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../anylogic/height_profile/Открытие tif/openTif/database/db.script" beforeDir="false" afterPath="$PROJECT_DIR$/../../anylogic/height_profile/Открытие tif/openTif/database/db.script" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +32,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.script.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "добавляемПитон",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/W10/Documents/GitHub/height_profile/anylogic/тестирование на голой модели/Model8",
@@ -64,6 +69,7 @@
       <workItem from="1765623080692" duration="1994000" />
       <workItem from="1765795451119" duration="2899000" />
       <workItem from="1766176242740" duration="4028000" />
+      <workItem from="1766226857057" duration="3757000" />
     </task>
     <servers />
   </component>
