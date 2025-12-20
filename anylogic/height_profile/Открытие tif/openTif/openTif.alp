@@ -534,6 +534,7 @@ public class FullTIFFReader implements Serializable {
                 System.out.println("✓ Всего элементов: " + width * height);
                 showArrayInfo();
                 saveArrayToCSV("height_profile.csv");
+                saveNotFullArrayToCSV("not_full_height_profile.csv");
                 processFullArray();
                 accessSpecificElements();
             }
@@ -669,7 +670,7 @@ public class FullTIFFReader implements Serializable {
 	        System.out.println("💡 Откройте неполный файл в Excel — данные отобразятся в 3 колонках!");
 
 	    } catch (Exception e) {
-	        System.err.println("Ошибка при сохранении CSV: " + e.getMessage());
+	        System.err.println("Ошибка при сохранении неплоного CSV: " + e.getMessage());
 	        e.printStackTrace();
 	    }
 	    
