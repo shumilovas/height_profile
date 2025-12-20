@@ -21,7 +21,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;]]></Import>
 			<StartupCode><![CDATA[FullTIFFReader fullTIFFReader = new FullTIFFReader();
-fullTIFFReader.main1().
+fullTIFFReader.x_begin=X_begin;
+fullTIFFReader.x_end=X_end;
+fullTIFFReader.y_begin=Y_begin;
+fullTIFFReader.y_end=Y_end;
 fullTIFFReader.main1();
 
 //NotFullReader notFullReader = new NotFullReader();
@@ -145,9 +148,9 @@ fullTIFFReader.main1();
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[double]]></Type>        
+						<Type><![CDATA[int]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[sliderX2.getValue();]]></Code>
+							<Code><![CDATA[100]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -175,7 +178,7 @@ fullTIFFReader.main1();
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[double]]></Type>        
+						<Type><![CDATA[int]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[100]]></Code>
 						</InitialValue>
@@ -488,6 +491,15 @@ public class FullTIFFReader implements Serializable {
     private static int width_segment;
     private static int height_segment;
     private static int height;
+    public static int x_begin;
+    public static int y_begin;
+    public static int x_end;
+    public static int y_end;
+    //private static int x_begin;
+    public static int number_segment;
+
+
+
 
     /**
      * Конструктор по умолчанию
@@ -745,34 +757,6 @@ public class FullTIFFReader implements Serializable {
     public static int getHeight() {
         return height;
     }
-
-}]]></Text>
-		</JavaClass>
-		<!--   =========   Java Class   ========  -->
-		<JavaClass>
-			<Id>1766253535736</Id>
-			<Name><![CDATA[MyClass]]></Name>
-			<Text><![CDATA[/**
- * MyClass
- */	
-public class MyClass implements Serializable {
-	
-    /**
-     * Конструктор по умолчанию
-     */
-    public MyClass() {
-    }
-
-	@Override
-	public String toString() {
-		return super.toString();
-	}
-
-	/**
-	 * Это число используется при сохранении состояния модели<br>
-	 * Его рекомендуется изменить в случае изменения класса
-	 */ 
-	private static final long serialVersionUID = 1L;
 
 }]]></Text>
 		</JavaClass>
