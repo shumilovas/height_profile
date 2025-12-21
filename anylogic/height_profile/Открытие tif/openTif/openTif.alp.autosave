@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*************************************************
+	         AnyLogic Project File 
+*************************************************	         
+-->
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.8.5.202310311109" AlpVersion="8.8.2">
+<Model>
+	<Id>1766096573008</Id>
+	<Name><![CDATA[openTif]]></Name>
+	<EngineVersion>6</EngineVersion>
+	<JavaPackageName><![CDATA[model6]]></JavaPackageName>
+	<ModelTimeUnit><![CDATA[Second]]></ModelTimeUnit>
+	<ActiveObjectClasses>
+		<!--   =========   Active Object Class   ========  -->
+		<ActiveObjectClass>
+			<Id>1766096573013</Id>
+			<Name><![CDATA[Main]]></Name>
+			<Import><![CDATA[import javax.imageio.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;]]></Import>
+			<StartupCode><![CDATA[FullTIFFReader fullTIFFReader = new FullTIFFReader();
+fullTIFFReader.x_begin=X_begin;
+fullTIFFReader.x_end=X_end;
+fullTIFFReader.y_begin=Y_begin;
+fullTIFFReader.y_end=Y_end;
+fullTIFFReader.main1();
+
+//NotFullReader notFullReader = new NotFullReader();
+//scanner = new org.eclipse.jdt.internal.compiler.parser.Scanner();
+//notFullReader.getCoordinate("coordName",0.0, 0.0, scanner);
+// The json library is imported in Python (used by some buttons)
+//pyCommunicator.run("import json");]]></StartupCode>
+			<Generic>false</Generic>
+			<GenericParameter>
+				<Id>1766096573019</Id>
+				<Name><![CDATA[1766096573019]]></Name>
+				<GenericParameterValue Class="CodeValue">
+					<Code><![CDATA[T extends Agent]]></Code>
+				</GenericParameterValue>
+				<GenericParameterLabel><![CDATA[Параметр настройки:]]></GenericParameterLabel>
+			</GenericParameter>
+			<FlowChartsUsage>ENTITY</FlowChartsUsage>
+			<SamplesToKeep>100</SamplesToKeep>
+			<LimitNumberOfArrayElements>false</LimitNumberOfArrayElements>
+			<ElementsLimitValue>100</ElementsLimitValue>
+			<MakeDefaultViewArea>true</MakeDefaultViewArea>
+			<SceneGridColor/>
+			<SceneBackgroundColor/>
+			<SceneSkybox>null</SceneSkybox>
+			<AgentProperties>
+				<EnvironmentDefinesInitialLocation>true</EnvironmentDefinesInitialLocation>
+				<RotateAnimationTowardsMovement>true</RotateAnimationTowardsMovement>
+				<RotateAnimationVertically>false</RotateAnimationVertically>
+				<VelocityCode Class="CodeUnitValue">
+					<Code><![CDATA[10]]></Code>
+					<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+				</VelocityCode>
+				<PhysicalLength Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalLength>
+				<PhysicalWidth Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalWidth>
+				<PhysicalHeight Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalHeight>
+			</AgentProperties>
+			<EnvironmentProperties>
+					<EnableSteps>false</EnableSteps>
+					<StepDurationCode Class="CodeUnitValue">
+						<Code><![CDATA[1.0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</StepDurationCode>
+					<SpaceType>CONTINUOUS</SpaceType>
+					<WidthCode><![CDATA[500]]></WidthCode>
+					<HeightCode><![CDATA[500]]></HeightCode>
+					<ZHeightCode><![CDATA[0]]></ZHeightCode>
+					<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
+					<RowsCountCode><![CDATA[100]]></RowsCountCode>
+					<NeigborhoodType>MOORE</NeigborhoodType>
+					<LayoutType>USER_DEF</LayoutType>
+					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
+					<NetworkType>USER_DEF</NetworkType>
+					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
+					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
+					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
+					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
+					<MCode><![CDATA[10]]></MCode>
+			</EnvironmentProperties>
+			<DatasetsCreationProperties>
+				<AutoCreate>true</AutoCreate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1766131200000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+			</DatasetsCreationProperties>
+			<ScaleRuler>
+				<Id>1766096573016</Id>
+				<Name><![CDATA[scale]]></Name>
+				<X>0</X><Y>-150</Y>
+				<PublicFlag>false</PublicFlag>
+				<PresentationFlag>false</PresentationFlag>
+				<ShowLabel>false</ShowLabel>
+				<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+				<Length>100</Length>
+				<Rotation>0</Rotation>
+				<ScaleType>BASED_ON_LENGTH</ScaleType>
+				<ModelLength>10</ModelLength>
+				<LengthUnits>METER</LengthUnits>
+				<Scale>10</Scale>
+				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
+			</ScaleRuler>
+			<CurrentLevel>1766096573020</CurrentLevel>
+			<ConnectionsId>1766096573014</ConnectionsId>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1766163376966</Id>
+					<Name><![CDATA[X_begin]]></Name>
+					<X>160</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[100]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1766230484416</Id>
+					<Name><![CDATA[X_end]]></Name>
+					<X>170</X><Y>210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[110]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1766230506513</Id>
+					<Name><![CDATA[Y_begin]]></Name>
+					<X>160</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[100]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1766230531048</Id>
+					<Name><![CDATA[Y_end]]></Name>
+					<X>170</X><Y>250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[110]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1766233759926</Id>
+					<Name><![CDATA[Quantity_of_inretvals]]></Name>
+					<X>170</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[10]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+			</Variables>
+			<AgentLinks>
+				<AgentLink>
+					<Id>1766096573014</Id>
+					<Name><![CDATA[connections]]></Name>
+					<X>50</X><Y>-50</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<HandleReceiveInConnections>false</HandleReceiveInConnections>
+					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
+					<AgentLinkBidirectional>true</AgentLinkBidirectional>
+					<MessageType><![CDATA[Object]]></MessageType>
+					<LineStyle>SOLID</LineStyle>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineZOrder>UNDER_AGENTS</LineZOrder>
+					<LineArrow>NONE</LineArrow>
+					<LineArrowPosition>END</LineArrowPosition>
+				</AgentLink>
+			</AgentLinks>
+
+
+			<Presentation>
+				<Level>
+					<Id>1766096573020</Id>
+					<Name><![CDATA[level]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
+
+			<Presentation>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1766163348205</Id>
+					<Name><![CDATA[sliderX1]]></Name>
+					<X>40</X><Y>50</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[1000]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[105000]]></MaxValue>
+						<Step><![CDATA[1000]]></Step>
+						<LinkTo>true</LinkTo>
+						<Link>X_begin</Link>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1766230437366</Id>
+					<Name><![CDATA[sliderX2]]></Name>
+					<X>50</X><Y>200</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[1000]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[105000]]></MaxValue>
+						<Step><![CDATA[1000]]></Step>
+						<LinkTo>true</LinkTo>
+						<Link>X_end</Link>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1766230451659</Id>
+					<Name><![CDATA[sliderY1]]></Name>
+					<X>40</X><Y>100</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[1000]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[105000]]></MaxValue>
+						<Step><![CDATA[1000]]></Step>
+						<LinkTo>true</LinkTo>
+						<Link>Y_begin</Link>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1766230469629</Id>
+					<Name><![CDATA[sliderY2]]></Name>
+					<X>50</X><Y>240</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[1000]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[105000]]></MaxValue>
+						<Step><![CDATA[1000]]></Step>
+						<LinkTo>true</LinkTo>
+						<Link>Y_end</Link>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1766233713716</Id>
+					<Name><![CDATA[slider_Quantity_of_inretvals]]></Name>
+					<X>50</X><Y>290</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[10]]></MinValue>
+						<MaxValue><![CDATA[1000]]></MaxValue>
+						<Step><![CDATA[10]]></Step>
+						<LinkTo>true</LinkTo>
+						<Link>Quantity_of_inretvals</Link>
+					</ExtendedProperties>
+				</Control>
+			</Presentation>
+
+				</Level>
+			</Presentation>
+
+		</ActiveObjectClass>
+	</ActiveObjectClasses>	
+	<DifferentialEquationsMethod>EULER</DifferentialEquationsMethod>
+	<MixedEquationsMethod>RK45_NEWTON</MixedEquationsMethod>
+	<AlgebraicEquationsMethod>MODIFIED_NEWTON</AlgebraicEquationsMethod>
+	<AbsoluteAccuracy>1.0E-5</AbsoluteAccuracy>
+	<FixedTimeStep>0.001</FixedTimeStep>
+	<RelativeAccuracy>1.0E-5</RelativeAccuracy>
+	<TimeAccuracy>1.0E-5</TimeAccuracy>
+	<Frame>
+		<Width>1000</Width>
+		<Height>600</Height>
+	</Frame>
+	<Database>
+		<Logging>false</Logging>
+		<AutoExport>false</AutoExport>
+		<ShutdownCompact>false</ShutdownCompact>
+		<ImportSettings>
+		</ImportSettings>
+		<ExportSettings>
+		</ExportSettings>
+	</Database>
+	
+	<RunConfiguration ActiveObjectClassId="1766096573013">
+		<Id>1766096573028</Id>
+		<Name><![CDATA[RunConfiguration]]></Name>
+		<MaximumMemory>512</MaximumMemory>
+		<ModelTimeProperties>
+			<StopOption><![CDATA[Stop at specified time]]></StopOption>
+			<InitialDate><![CDATA[1766016000000]]></InitialDate>	
+			<InitialTime><![CDATA[0.0]]></InitialTime>	
+			<FinalDate><![CDATA[1768694400000]]></FinalDate>	
+			<FinalTime><![CDATA[100.0]]></FinalTime>	
+		</ModelTimeProperties>
+		<AnimationProperties>
+			<StopNever>true</StopNever>
+			<ExecutionMode>realTimeScaled</ExecutionMode>
+			<RealTimeScale>1.0</RealTimeScale>
+			<EnableZoomAndPanning>true</EnableZoomAndPanning>
+			<EnableDeveloperPanel>false</EnableDeveloperPanel>
+			<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
+		</AnimationProperties>
+		<Inputs>		
+		</Inputs>
+		<Outputs>
+		</Outputs>
+	</RunConfiguration>
+	<Experiments>	
+		<!--   =========   Simulation Experiment   ========  -->
+		<SimulationExperiment ActiveObjectClassId="1766096573013">
+			<Id>1766096573022</Id>
+			<Name><![CDATA[Simulation]]></Name>
+			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
+			<MaximumMemory>512</MaximumMemory>
+			<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
+			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
+			<SeedValue>1</SeedValue>
+			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
+			<VmArgs><![CDATA[]]></VmArgs>
+			<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
+
+			<Presentation>
+				<Text>
+					<Id>1766096573027</Id>
+					<Name><![CDATA[text]]></Name>
+					<X>50</X><Y>30</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12490271</Color>
+					<Text><![CDATA[Model6]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>24</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+			<Parameters>			
+			</Parameters>			
+			<PresentationProperties>
+				<EnableZoomAndPanning>true</EnableZoomAndPanning>
+				<ExecutionMode><![CDATA[realTimeScaled]]></ExecutionMode>
+				<Title><![CDATA[Model6 : Simulation]]></Title>	
+				<EnableDeveloperPanel>true</EnableDeveloperPanel>
+				<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
+				<RealTimeScale>1.0</RealTimeScale>
+			</PresentationProperties>
+			<ModelTimeProperties>
+				<StopOption><![CDATA[Never]]></StopOption>
+				<InitialDate><![CDATA[1766016000000]]></InitialDate>	
+				<InitialTime><![CDATA[0.0]]></InitialTime>	
+				<FinalDate><![CDATA[1768694400000]]></FinalDate>	
+				<FinalTime><![CDATA[100.0]]></FinalTime>	
+			</ModelTimeProperties>
+			<BypassInitialScreen>true</BypassInitialScreen>
+		</SimulationExperiment>	
+	</Experiments>
+	<JavaClasses>
+		<!--   =========   Java Class   ========  -->
+		<JavaClass>
+			<Id>1766097665615</Id>
+			<Name><![CDATA[FullTIFFReader]]></Name>
+			<Text><![CDATA[/**
+ * FullTIFFReader
+ */	
+
+import java.awt.image.BufferedImage;
+import java.awt.image.Raster;
+import java.io.File;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.util.Iterator;
+import javax.imageio.ImageIO;
+import javax.imageio.ImageReader;
+import javax.imageio.stream.ImageInputStream;
+//import untitled;
+import java.*;
+
+public class FullTIFFReader implements Serializable {
+	private static int[][] fullPixelArray;
+	private static int[][] notfullPixelArray;
+	//public static Table3colomns
+    private static int width;
+    private static int width_segment;
+    private static int height_segment;
+    private static int height;
+    public static int x_begin;
+    public static int y_begin;
+    public static int x_end;
+    public static int y_end;
+    //private static int x_begin;
+    public static int number_segment;
+
+
+
+
+    /**
+     * Конструктор по умолчанию
+     */
+    public FullTIFFReader() {
+    }
+
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+
+	/**
+	 * Это число используется при сохранении состояния модели<br>
+	 * Его рекомендуется изменить в случае изменения класса
+	 */ 
+	private static final long serialVersionUID = 1L;
+	
+	public static void main1() {
+        try {
+            String filePath = "out.tif";
+            File tiffFile = new File(filePath);
+            if (!tiffFile.exists()) {
+                System.out.println("Файл не найден: " + filePath);
+                return;
+            }
+
+            boolean success = readTIFFToArray(tiffFile);
+            if (success) {
+                System.out.println("✓ TIFF файл успешно прочитан!");
+                System.out.println("✓ Размеры: " + width + "x" + height);
+                System.out.println("✓ Всего элементов: " + width * height);
+                showArrayInfo();
+                saveArrayToCSV("height_profile.csv");
+                saveNotFullArrayToCSV("not_full_height_profile.csv");
+                processFullArray();
+                accessSpecificElements();
+            }
+        } catch (Exception e) {
+            System.err.println("Ошибка:");
+            e.printStackTrace();
+        }
+        
+        
+
+    }
+	
+	private static boolean readTIFFToArray(File tiffFile) throws Exception {
+        Iterator<ImageReader> readers = ImageIO.getImageReadersByFormatName("TIFF");
+        if (!readers.hasNext()) {
+            System.out.println("Ошибка: TIFF ридер не найден.");
+            return false;
+        } else {
+            ImageReader reader = (ImageReader)readers.next();
+
+            boolean var16;
+            try {
+                ImageInputStream stream = ImageIO.createImageInputStream(tiffFile);
+
+                try {
+                    reader.setInput(stream);
+                    width = reader.getWidth(0);
+                    height = reader.getHeight(0);
+                    System.out.println("Чтение файла...");
+                    System.out.println("Размеры: " + width + "x" + height);
+                    BufferedImage image = reader.read(0);
+                    Raster raster = image.getRaster();
+                    fullPixelArray = new int[height][width];
+                    System.out.println("Чтение " + width * height + " пикселей...");
+                    int[] pixel = new int[raster.getNumBands()];
+
+                    for(int y = 0; y < height; ++y) {
+                        for(int x = 0; x < width; ++x) {
+                            raster.getPixel(x, y, pixel);
+                            fullPixelArray[y][x] = pixel[0];
+                        }
+
+                        if (y % 100 == 0) {
+                            System.out.printf("Прочитано: %.1f%%\n", (double)y * (double)100.0F / (double)height);
+                        }
+                    }
+
+                    System.out.println("Чтение завершено на 100%");
+                    var16 = true;
+                } catch (Throwable var14) {
+                    if (stream != null) {
+                        try {
+                            stream.close();
+                        } catch (Throwable var13) {
+                            var14.addSuppressed(var13);
+                        }
+                    }
+
+                    throw var14;
+                }
+
+                if (stream != null) {
+                    stream.close();
+                }
+            } finally {
+                reader.dispose();
+            }
+
+            return var16;
+        }
+        
+        
+    }
+	private static void saveArrayToCSV(String filename) {
+	    System.out.println("\n=== СОХРАНЕНИЕ В CSV (для Excel) ===");
+	    System.out.println("Сохранение в файл: " + filename);
+
+	    try (java.io.PrintWriter writer = new java.io.PrintWriter(filename)) {
+	        // Заголовки — используем точку с запятой как разделитель
+	        writer.println("X;Y;Height");
+
+	        // Данные
+	        int total = width * height;
+	        int count = 0;
+
+	        for (int y = 0; y < height; y++) {
+	            for (int x = 0; x < width; x++) {
+	                writer.printf("%d;%d;%d%n", x, y, fullPixelArray[y][x]);
+	                count++;
+
+	                if (count % 10000 == 0 || count == total) {
+	                    System.out.printf("Сохранено: %.1f%%\n", (100.0 * count / total));
+	                }
+	            }
+	        }
+
+	        System.out.println("✓ Данные сохранены в: " + filename);
+	        System.out.println("💡 Откройте файл в Excel — данные отобразятся в 3 колонках!");
+
+	    } catch (Exception e) {
+	        System.err.println("Ошибка при сохранении CSV: " + e.getMessage());
+	        e.printStackTrace();
+	    }
+	    
+	    
+	}
+	
+	
+	private static void saveNotFullArrayToCSV(String filename) {
+	    System.out.println("\n=== СОХРАНЕНИЕ В CSV (для Excel) ===");
+	    System.out.println("Сохранение в файл: " + filename);
+
+	    try (java.io.PrintWriter writer = new java.io.PrintWriter(filename)) {
+	        // Заголовки — используем точку с запятой как разделитель
+	        writer.println("X;Y;Height");
+
+	        // Данные
+	        int total = (y_end-y_begin) * (x_end - x_begin);
+	        int count = 0;
+	        
+	        notfullPixelArray = new int[(y_end-y_begin) ][(x_end - x_begin)];
+	        int x1  = 0;
+        	int y1 = 0 ;
+
+	        for (int y = y_begin; y < y_end; y++) {
+	        	y1++;
+	            for (int x = x_begin; x < x_end; x++) {	            	
+	                writer.printf("%d;%d;%d%n", x, y, fullPixelArray[y][x]);
+	                notfullPixelArray[x1][y1]= fullPixelArray[y][x];
+	                count++;
+
+	                if (count % 10000 == 0 || count == total) {
+	                    System.out.printf("Сохранено: %.1f%%\n", (100.0 * count / total));
+	                }
+	            }
+	        }
+
+	        System.out.println("✓ Данные неполные сохранены в: " + filename);
+	        System.out.println("💡 Откройте неполный файл в Excel — данные отобразятся в 3 колонках!");
+
+	    } catch (Exception e) {
+	        System.err.println("Ошибка при сохранении неплоного CSV: " + e.getMessage());
+	        e.printStackTrace();
+	    }
+	    
+	    
+	}
+	
+	private static void processFullArray() {
+        System.out.println("\n=== ОБРАБОТКА МАССИВА ===");
+
+        int threshold = 20000;
+        int countAboveThreshold = 0;
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                if (fullPixelArray[y][x] > threshold) {
+                    countAboveThreshold++;
+                }
+            }
+        }
+
+        System.out.println("Пикселей > " + threshold + ": " + countAboveThreshold +
+                " (" + String.format("%.1f", (countAboveThreshold * 100.0 / (width * height))) + "%)");
+
+        int maxValue = Integer.MIN_VALUE;
+        int maxX = -1, maxY = -1;
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                if (fullPixelArray[y][x] > maxValue) {
+                    maxValue = fullPixelArray[y][x];
+                    maxX = x;
+                    maxY = y;
+                }
+            }
+        }
+
+        System.out.println("Самый яркий пиксель: значение=" + maxValue +
+                " на позиции [Y=" + maxY + ", X=" + maxX + "]");
+    }
+
+    private static void accessSpecificElements() {
+        System.out.println("\n=== ДОСТУП К ЭЛЕМЕНТАМ ===");
+
+        System.out.println("Первые 10x10 элементов:");
+        for (int y = 0; y < Math.min(10, height); y++) {
+            for (int x = 0; x < Math.min(10, width); x++) {
+                System.out.print(fullPixelArray[y][x] + "\t");
+            }
+            System.out.println();
+        }
+
+        System.out.println("\nПоследние 10x10 элементов:");
+        int startY = Math.max(0, height - 10);
+        int startX = Math.max(0, width - 10);
+
+        for (int y = startY; y < height; y++) {
+            for (int x = startX; x < width; x++) {
+                System.out.print(fullPixelArray[y][x] + "\t");
+            }
+            System.out.println();
+        }
+
+        System.out.println("\nЗначения в углах массива:");
+        System.out.println("Левый верхний [0][0]: " + fullPixelArray[0][0]);
+        System.out.println("Правый верхний [0][" + (width - 1) + "]: " + fullPixelArray[0][width - 1]);
+        System.out.println("Левый нижний [" + (height - 1) + "][0]: " + fullPixelArray[height - 1][0]);
+        System.out.println("Правый нижний [" + (height - 1) + "][" + (width - 1) + "]: " +
+                fullPixelArray[height - 1][width - 1]);
+
+        int centerY = height / 2;
+        int centerX = width / 2;
+        System.out.println("Центр массива [Y=" + centerY + ", X=" + centerX + "]: " +
+                fullPixelArray[centerY][centerX]);
+    }
+    
+    public static int getPixelValue(int row, int col) {
+        if (fullPixelArray != null &&
+                row >= 0 && row < height &&
+                col >= 0 && col < width) {
+            return fullPixelArray[row][col];
+        }
+        return -1;
+    }
+    
+    private static void showArrayInfo() {
+        System.out.println("\n=== ИНФОРМАЦИЯ О МАССИВЕ ===");
+        System.out.println("Размер массива: " + fullPixelArray.length + " строк");
+        System.out.println("Длина строки: " + fullPixelArray[0].length + " столбцов");
+
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        long sum = 0;
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int value = fullPixelArray[y][x];
+                if (value < min)
+                    min = value;
+                if (value > max)
+                    max = value;
+                sum += value;
+            }
+        }
+
+        double average = (double) sum / (width * height);
+
+        System.out.println("Минимальное значение: " + min);
+        System.out.println("Максимальное значение: " + max);
+        System.out.println("Среднее значение: " + String.format("%.2f", average));
+        System.out.println("Сумма всех значений: " + sum);
+    }
+
+    public static int[][] getFullArray() {
+        return fullPixelArray;
+    }
+
+    public static int getWidth() {
+        return width;
+    }
+
+    public static int getHeight() {
+        return height;
+    }
+
+}]]></Text>
+		</JavaClass>
+	</JavaClasses>
+	<ModelResources>
+		<Resource>
+			<Path><![CDATA[imageio]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[imageio/IIOException.java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[imageio/IIOImage.java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[imageio/IIOParam.java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[imageio/IIOParamController.java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[imageio/ImageIO.java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[imageio/ImageReader.java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[imageio/ImageReadParam.java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[imageio/ImageTranscoder.java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[imageio/ImageTypeSpecifier.java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[imageio/ImageWriteParam.java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[imageio/ImageWriter.java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[imageio/package-info.java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[classes]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[untitled]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[untitled/src]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[java]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+	</ModelResources>
+    <RequiredLibraryReference>
+		<LibraryName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></LibraryName>
+		<VersionMajor>1</VersionMajor>
+		<VersionMinor>0</VersionMinor>
+		<VersionBuild>0</VersionBuild>
+    </RequiredLibraryReference>
+    <RequiredLibraryReference>
+		<LibraryName><![CDATA[com.anylogic.libraries.pypeline]]></LibraryName>
+		<VersionMajor>1</VersionMajor>
+		<VersionMinor>7</VersionMinor>
+		<VersionBuild>0</VersionBuild>
+    </RequiredLibraryReference>
+	<ClassPathEntry>
+		<ResourceReference>
+			<PackageName><![CDATA[model6]]></PackageName>
+			<ClassName><![CDATA[imageio]]></ClassName>
+		</ResourceReference>
+		<Imported>false</Imported>
+		<Folder>true</Folder>
+	</ClassPathEntry>
+	<ClassPathEntry>
+		<ResourceReference>
+			<PackageName><![CDATA[model6]]></PackageName>
+			<ClassName><![CDATA[java]]></ClassName>
+		</ResourceReference>
+		<Imported>false</Imported>
+		<Folder>true</Folder>
+	</ClassPathEntry>
+</Model>
+</AnyLogicWorkspace>
