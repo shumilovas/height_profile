@@ -410,7 +410,7 @@ fullTIFFReader.main1();]]></ActionCode>
 	<RunConfiguration ActiveObjectClassId="1766096573013">
 		<Id>1766096573028</Id>
 		<Name><![CDATA[RunConfiguration]]></Name>
-		<MaximumMemory>512</MaximumMemory>
+		<MaximumMemory>4096</MaximumMemory>
 		<ModelTimeProperties>
 			<StopOption><![CDATA[Stop at specified time]]></StopOption>
 			<InitialDate><![CDATA[1766016000000]]></InitialDate>	
