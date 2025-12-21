@@ -371,6 +371,7 @@ fullTIFFReader.x_begin=X_begin;
 fullTIFFReader.x_end=X_end;
 fullTIFFReader.y_begin=Y_begin;
 fullTIFFReader.y_end=Y_end;
+fullTIFFReader.number_segment=Quantity_of_inretvals;
 fullTIFFReader.main1();]]></ActionCode>
 					</BasicProperties>
 					<ExtendedProperties>
@@ -673,39 +674,7 @@ public class FullTIFFReader implements Serializable {
 	    System.out.println("\n=== СОХРАНЕНИЕ В CSV (для Excel) ===");
 	    System.out.println("Сохранение в файл: " + filename);
 
-	    try (java.io.PrintWriter writer = new java.io.PrintWriter(filename)) {
-	        // Заголовки — используем точку с запятой как разделитель
-	        writer.println("X;Y;Height");
-
-	        // Данные
-	        int total = (y_end-y_begin) * (x_end - x_begin);
-	        int count = 0;
-	        
-	        notfullPixelArray = new int[(y_end-y_begin) ][(x_end - x_begin)];
-	        int x1  = 0;
-        	int y1 = 0 ;
-
-	        for (int y = y_begin; y < y_end; y++) {
-	        	y1++;
-	            for (int x = x_begin; x < x_end; x++) {	            	
-	                writer.printf("%d;%d;%d%n", x, y, fullPixelArray[y][x]);
-	                notfullPixelArray[x1][y1]= fullPixelArray[y][x];
-	                count++;
-
-	                if (count % 10000 == 0 || count == total) {
-	                    System.out.printf("Сохранено: %.1f%%\n", (100.0 * count / total));
-	                }
-	            }
-	        }
-
-	        System.out.println("✓ Данные неполные сохранены в: " + filename);
-	        System.out.println("💡 Откройте неполный файл в Excel — данные отобразятся в 3 колонках!");
-
-	    } catch (Exception e) {
-	        System.err.println("Ошибка при сохранении неплоного CSV: " + e.getMessage());
-	        e.printStackTrace();
-	    }
-	    
+	      
 	    int[][] heightData = fullPixelArray;// ваш массив высот из TIF файла
 	    double[][] profile = SimpleProfileCreator.create(heightData, x_begin, y_begin, x_end, y_end, number_segment);
 	    SimpleProfileCreator.saveCSV(profile, "result.csv");
