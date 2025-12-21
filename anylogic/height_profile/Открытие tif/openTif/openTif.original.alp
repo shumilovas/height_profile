@@ -16,9 +16,20 @@
 		<ActiveObjectClass>
 			<Id>1766096573013</Id>
 			<Name><![CDATA[Main]]></Name>
-			<Import><![CDATA[import javax.imageio.*;]]></Import>
+			<Import><![CDATA[import javax.imageio.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;]]></Import>
 			<StartupCode><![CDATA[FullTIFFReader fullTIFFReader = new FullTIFFReader();
+fullTIFFReader.x_begin=X_begin;
+fullTIFFReader.x_end=X_end;
+fullTIFFReader.y_begin=Y_begin;
+fullTIFFReader.y_end=Y_end;
 fullTIFFReader.main1();
+
+//NotFullReader notFullReader = new NotFullReader();
+//scanner = new org.eclipse.jdt.internal.compiler.parser.Scanner();
+//notFullReader.getCoordinate("coordName",0.0, 0.0, scanner);
 // The json library is imported in Python (used by some buttons)
 //pyCommunicator.run("import json");]]></StartupCode>
 			<Generic>false</Generic>
@@ -115,14 +126,77 @@ fullTIFFReader.main1();
 			<Variables>
 				<Variable Class="PlainVariable">
 					<Id>1766163376966</Id>
-					<Name><![CDATA[X_начала]]></Name>
-					<X>180</X><Y>70</Y>
+					<Name><![CDATA[X_begin]]></Name>
+					<X>160</X><Y>60</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[double]]></Type>        
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[100]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1766230484416</Id>
+					<Name><![CDATA[X_end]]></Name>
+					<X>170</X><Y>210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[110]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1766230506513</Id>
+					<Name><![CDATA[Y_begin]]></Name>
+					<X>160</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[100]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1766230531048</Id>
+					<Name><![CDATA[Y_end]]></Name>
+					<X>170</X><Y>250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[110]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1766233759926</Id>
+					<Name><![CDATA[Quantity_of_inretvals]]></Name>
+					<X>170</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[10]]></Code>
+						</InitialValue>
 					</Properties>
 				</Variable>
 			</Variables>
@@ -178,11 +252,109 @@ fullTIFFReader.main1();
 						<Enabled>true</Enabled>
 					</BasicProperties>
 					<ExtendedProperties>
-						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
+						<DefaultValueCode><![CDATA[1000]]></DefaultValueCode>
 						<Orientation>HORIZONTAL</Orientation>
 						<MinValue><![CDATA[0]]></MinValue>
-						<MaxValue><![CDATA[100]]></MaxValue>
-						<LinkTo>false</LinkTo>
+						<MaxValue><![CDATA[105000]]></MaxValue>
+						<Step><![CDATA[1000]]></Step>
+						<LinkTo>true</LinkTo>
+						<Link>X_begin</Link>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1766230437366</Id>
+					<Name><![CDATA[sliderX2]]></Name>
+					<X>50</X><Y>200</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[1000]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[105000]]></MaxValue>
+						<Step><![CDATA[1000]]></Step>
+						<LinkTo>true</LinkTo>
+						<Link>X_end</Link>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1766230451659</Id>
+					<Name><![CDATA[sliderY1]]></Name>
+					<X>40</X><Y>100</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[1000]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[105000]]></MaxValue>
+						<Step><![CDATA[1000]]></Step>
+						<LinkTo>true</LinkTo>
+						<Link>Y_begin</Link>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1766230469629</Id>
+					<Name><![CDATA[sliderY2]]></Name>
+					<X>50</X><Y>240</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[1000]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[105000]]></MaxValue>
+						<Step><![CDATA[1000]]></Step>
+						<LinkTo>true</LinkTo>
+						<Link>Y_end</Link>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1766233713716</Id>
+					<Name><![CDATA[slider_Quantity_of_inretvals]]></Name>
+					<X>50</X><Y>290</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[10]]></MinValue>
+						<MaxValue><![CDATA[1000]]></MaxValue>
+						<Step><![CDATA[10]]></Step>
+						<LinkTo>true</LinkTo>
+						<Link>Quantity_of_inretvals</Link>
 					</ExtendedProperties>
 				</Control>
 			</Presentation>
@@ -315,8 +487,20 @@ import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 public class FullTIFFReader implements Serializable {
 	private static int[][] fullPixelArray;
+	private static int[][] notfullPixelArray;
     private static int width;
+    private static int width_segment;
+    private static int height_segment;
     private static int height;
+    public static int x_begin;
+    public static int y_begin;
+    public static int x_end;
+    public static int y_end;
+    //private static int x_begin;
+    public static int number_segment;
+
+
+
 
     /**
      * Конструктор по умолчанию
@@ -351,6 +535,7 @@ public class FullTIFFReader implements Serializable {
                 System.out.println("✓ Всего элементов: " + width * height);
                 showArrayInfo();
                 saveArrayToCSV("height_profile.csv");
+                saveNotFullArrayToCSV("not_full_height_profile.csv");
                 processFullArray();
                 accessSpecificElements();
             }
@@ -458,6 +643,47 @@ public class FullTIFFReader implements Serializable {
 	    
 	}
 	
+	
+	private static void saveNotFullArrayToCSV(String filename) {
+	    System.out.println("\n=== СОХРАНЕНИЕ В CSV (для Excel) ===");
+	    System.out.println("Сохранение в файл: " + filename);
+
+	    try (java.io.PrintWriter writer = new java.io.PrintWriter(filename)) {
+	        // Заголовки — используем точку с запятой как разделитель
+	        writer.println("X;Y;Height");
+
+	        // Данные
+	        int total = (y_end-y_begin) * (x_end - x_begin);
+	        int count = 0;
+	        
+	        notfullPixelArray = new int[(y_end-y_begin) ][(x_end - x_begin)];
+	        int x1  = 0;
+        	int y1 = 0 ;
+
+	        for (int y = y_begin; y < y_end; y++) {
+	        	y1++;
+	            for (int x = x_begin; x < x_end; x++) {	            	
+	                writer.printf("%d;%d;%d%n", x, y, fullPixelArray[y][x]);
+	                notfullPixelArray[x1][y1]= fullPixelArray[y][x];
+	                count++;
+
+	                if (count % 10000 == 0 || count == total) {
+	                    System.out.printf("Сохранено: %.1f%%\n", (100.0 * count / total));
+	                }
+	            }
+	        }
+
+	        System.out.println("✓ Данные неполные сохранены в: " + filename);
+	        System.out.println("💡 Откройте неполный файл в Excel — данные отобразятся в 3 колонках!");
+
+	    } catch (Exception e) {
+	        System.err.println("Ошибка при сохранении неплоного CSV: " + e.getMessage());
+	        e.printStackTrace();
+	    }
+	    
+	    
+	}
+	
 	private static void processFullArray() {
         System.out.println("\n=== ОБРАБОТКА МАССИВА ===");
 
@@ -526,6 +752,7 @@ public class FullTIFFReader implements Serializable {
         System.out.println("Центр массива [Y=" + centerY + ", X=" + centerX + "]: " +
                 fullPixelArray[centerY][centerX]);
     }
+    
     public static int getPixelValue(int row, int col) {
         if (fullPixelArray != null &&
                 row >= 0 && row < height &&

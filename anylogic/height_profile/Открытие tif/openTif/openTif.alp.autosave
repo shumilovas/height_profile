@@ -20,12 +20,7 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;]]></Import>
-			<StartupCode><![CDATA[FullTIFFReader fullTIFFReader = new FullTIFFReader();
-fullTIFFReader.x_begin=X_begin;
-fullTIFFReader.x_end=X_end;
-fullTIFFReader.y_begin=Y_begin;
-fullTIFFReader.y_end=Y_end;
-fullTIFFReader.main1();
+			<StartupCode><![CDATA[
 
 //NotFullReader notFullReader = new NotFullReader();
 //scanner = new org.eclipse.jdt.internal.compiler.parser.Scanner();
@@ -357,6 +352,32 @@ fullTIFFReader.main1();
 						<Link>Quantity_of_inretvals</Link>
 					</ExtendedProperties>
 				</Control>
+				<Control Type="Button">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1766345954452</Id>
+					<Name><![CDATA[button]]></Name>
+					<X>190</X><Y>380</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="170" Height="50">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+						<ActionCode><![CDATA[FullTIFFReader fullTIFFReader = new FullTIFFReader();
+fullTIFFReader.x_begin=X_begin;
+fullTIFFReader.x_end=X_end;
+fullTIFFReader.y_begin=Y_begin;
+fullTIFFReader.y_end=Y_end;
+fullTIFFReader.main1();]]></ActionCode>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[прочесть и посчитать]]></LabelText>
+					</ExtendedProperties>
+				</Control>
 			</Presentation>
 
 				</Level>
@@ -415,7 +436,7 @@ fullTIFFReader.main1();
 			<Id>1766096573022</Id>
 			<Name><![CDATA[Simulation]]></Name>
 			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
-			<MaximumMemory>512</MaximumMemory>
+			<MaximumMemory>4096</MaximumMemory>
 			<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
 			<SeedValue>1</SeedValue>
@@ -464,7 +485,7 @@ fullTIFFReader.main1();
 				<FinalDate><![CDATA[1768694400000]]></FinalDate>	
 				<FinalTime><![CDATA[100.0]]></FinalTime>	
 			</ModelTimeProperties>
-			<BypassInitialScreen>true</BypassInitialScreen>
+			<BypassInitialScreen>false</BypassInitialScreen>
 		</SimulationExperiment>	
 	</Experiments>
 	<JavaClasses>
@@ -486,7 +507,7 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 //import untitled;
-import java.*;
+
 
 public class FullTIFFReader implements Serializable {
 	private static int[][] fullPixelArray;
@@ -685,6 +706,10 @@ public class FullTIFFReader implements Serializable {
 	        e.printStackTrace();
 	    }
 	    
+	    int[][] heightData = fullPixelArray;// ваш массив высот из TIF файла
+	    double[][] profile = SimpleProfileCreator.create(heightData, x_begin, y_begin, x_end, y_end, number_segment);
+	    SimpleProfileCreator.saveCSV(profile, "result.csv");
+	    
 	    
 	}
 	
@@ -808,6 +833,271 @@ public class FullTIFFReader implements Serializable {
 
 }]]></Text>
 		</JavaClass>
+		<!--   =========   Java Class   ========  -->
+		<JavaClass>
+			<Id>1766330855584</Id>
+			<Name><![CDATA[SimpleProfileCreator]]></Name>
+			<Text><![CDATA[/**
+ * SimpleProfileCreator
+ */	
+public class SimpleProfileCreator implements Serializable {
+
+    /**
+     * Конструктор по умолчанию
+     */
+    public SimpleProfileCreator() {
+    }
+
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+
+	/**
+	 * Это число используется при сохранении состояния модели<br>
+	 * Его рекомендуется изменить в случае изменения класса
+	 */ 
+	private static final long serialVersionUID = 1L;
+
+    /**
+     * Создает профиль высот между двумя точками.
+     *
+     * САМЫЙ ПРОСТОЙ СПОСОБ СОЗДАНИЯ ПРОФИЛЯ!
+     *
+     * @param heightData массив высот из TIF файла [строка][столбец]
+     * @param startX координата X начальной точки (от 0 до ширина-1)
+     * @param startY координата Y начальной точки (от 0 до высота-1)
+     * @param endX координата X конечной точки (от 0 до ширина-1)
+     * @param endY координата Y конечной точки (от 0 до высота-1)
+     * @param numPoints сколько точек создать на отрезке (минимум 2)
+     * @return двумерный массив [количество_точек][3], где каждая строка = [X, Y, Height]
+     */
+    public static double[][] create(int[][] heightData,
+                                     double startX, double startY,
+                                     double endX, double endY,
+                                     int numPoints) {
+
+        // Проверка входных данных
+        if (heightData == null || heightData.length == 0) {
+            System.err.println("ОШИБКА: Массив данных пустой!");
+            return null;
+        }
+
+        if (numPoints < 2) {
+            System.err.println("ОШИБКА: Нужно минимум 2 точки!");
+            return null;
+        }
+
+        // Получаем размеры массива
+        int dataHeight = heightData.length;      // количество строк
+        int dataWidth = heightData[0].length;    // количество столбцов
+
+        // Создаем массив для результата
+        // Каждая строка будет содержать [X, Y, Height]
+        double[][] result = new double[numPoints][3];
+
+        System.out.println("=== СОЗДАНИЕ ПРОФИЛЯ ===");
+        System.out.println("От точки (" + startX + ", " + startY + ")");
+        System.out.println("До точки (" + endX + ", " + endY + ")");
+        System.out.println("Количество точек: " + numPoints);
+
+        // Проходим по каждой точке профиля
+        for (int i = 0; i < numPoints; i++) {
+
+            // ШАГ 1: Вычисляем коэффициент t от 0.0 до 1.0
+            // t = 0.0 соответствует началу, t = 1.0 соответствует концу
+            double t = (double) i / (numPoints - 1);
+
+            // ШАГ 2: Линейная интерполяция координат
+            // Формула: текущая_координата = начало + (конец - начало) * t
+            double currentX = startX + (endX - startX) * t;
+            double currentY = startY + (endY - startY) * t;
+
+            // ШАГ 3: Преобразуем координаты в индексы массива
+            // Округляем до ближайшего целого числа
+            int col = (int) Math.round(currentX);
+            int row = (int) Math.round(currentY);
+
+            // ШАГ 4: Проверяем границы массива
+            // Если вышли за границы - обрезаем до допустимых значений
+            if (col < 0) col = 0;
+            if (col >= dataWidth) col = dataWidth - 1;
+            if (row < 0) row = 0;
+            if (row >= dataHeight) row = dataHeight - 1;
+
+            // ШАГ 5: Получаем высоту из массива
+            double height = heightData[row][col];
+
+            // ШАГ 6: Сохраняем результат в массив
+            result[i][0] = currentX;  // координата X
+            result[i][1] = currentY;  // координата Y
+            result[i][2] = height;    // высота
+
+            // Выводим первые 3 точки для проверки
+            if (i < 3) {
+                System.out.println("Точка " + (i + 1) + ": X=" +
+                        String.format("%.2f", currentX) + ", Y=" +
+                        String.format("%.2f", currentY) + ", H=" +
+                        String.format("%.2f", height));
+            }
+        }
+
+        System.out.println("✓ Профиль создан!");
+        return result;
+    }
+
+    /**
+     * Сохраняет профиль в CSV файл.
+     *
+     * Формат файла:
+     * X;Y;Height
+     * 10.50;20.30;1523.45
+     * 11.20;21.10;1534.78
+     * ...
+     *
+     * @param profile массив точек [количество][3], где каждая строка = [X, Y, Height]
+     * @param filename имя файла для сохранения (например, "profile.csv")
+     * @return true если успешно сохранено, false если ошибка
+     */
+    public static boolean saveCSV(double[][] profile, String filename) {
+
+        // Проверка входных данных
+        if (profile == null || profile.length == 0) {
+            System.err.println("ОШИБКА: Нет данных для сохранения!");
+            return false;
+        }
+
+        try {
+            // Открываем файл для записи
+            java.io.PrintWriter writer = new java.io.PrintWriter(filename);
+
+            // Записываем заголовок
+            writer.println("X;Y;Height");
+
+            // Записываем каждую точку
+            for (int i = 0; i < profile.length; i++) {
+                double x = profile[i][0];
+                double y = profile[i][1];
+                double height = profile[i][2];
+
+                // Записываем строку в формате: X;Y;Height
+                writer.printf("%.3f;%.3f;%.3f%n", x, y, height);
+            }
+
+            // Закрываем файл
+            writer.close();
+
+            System.out.println("✓ Файл сохранен: " + filename);
+            System.out.println("✓ Записано точек: " + profile.length);
+            return true;
+
+        } catch (Exception e) {
+            System.err.println("ОШИБКА при сохранении файла: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * Выводит информацию о профиле в консоль.
+     *
+     * @param profile массив точек профиля
+     */
+    public static void printInfo(double[][] profile) {
+
+        if (profile == null || profile.length == 0) {
+            System.out.println("Нет данных для вывода");
+            return;
+        }
+
+        System.out.println("\n=== ИНФОРМАЦИЯ О ПРОФИЛЕ ===");
+        System.out.println("Всего точек: " + profile.length);
+
+        // Находим минимум и максимум высоты
+        double minHeight = Double.MAX_VALUE;
+        double maxHeight = Double.MIN_VALUE;
+        double sumHeight = 0;
+
+        for (int i = 0; i < profile.length; i++) {
+            double h = profile[i][2];
+            if (h < minHeight) minHeight = h;
+            if (h > maxHeight) maxHeight = h;
+            sumHeight += h;
+        }
+
+        double avgHeight = sumHeight / profile.length;
+
+        System.out.println("Минимальная высота: " + String.format("%.2f", minHeight));
+        System.out.println("Максимальная высота: " + String.format("%.2f", maxHeight));
+        System.out.println("Средняя высота: " + String.format("%.2f", avgHeight));
+        System.out.println("Перепад высот: " + String.format("%.2f", maxHeight - minHeight));
+
+        // Выводим первые 5 точек
+        System.out.println("\nПервые 5 точек:");
+        System.out.printf("%-5s %-10s %-10s %-10s%n", "№", "X", "Y", "Height");
+        System.out.println("----------------------------------------");
+
+        int limit = Math.min(5, profile.length);
+        for (int i = 0; i < limit; i++) {
+            System.out.printf("%-5d %-10.2f %-10.2f %-10.2f%n",
+                    (i + 1), profile[i][0], profile[i][1], profile[i][2]);
+        }
+    }
+
+    /**
+     * Демонстрация использования класса.
+     */
+    public static void demo() {
+        System.out.println("========================================");
+        System.out.println("ДЕМО: SimpleProfileCreator");
+        System.out.println("========================================\n");
+
+        // Создаем тестовый массив высот 100x100
+        System.out.println("Создание тестовых данных 100x100...");
+        int[][] testData = new int[100][100];
+
+        for (int row = 0; row < 100; row++) {
+            for (int col = 0; col < 100; col++) {
+                // Простая формула для создания высот (градиент)
+                testData[row][col] = row * 10 + col * 5;
+            }
+        }
+
+        System.out.println("✓ Тестовые данные созданы\n");
+
+        // ГЛАВНАЯ ОПЕРАЦИЯ: Создание профиля
+        // От точки (10, 20) до точки (90, 80) с 50 точками
+
+        double[][] profile = create(
+                testData,   // массив данных
+                10, 20,     // начальная точка (X=10, Y=20)
+                90, 80,     // конечная точка (X=90, Y=80)
+                50          // количество точек
+        );
+
+        // Проверяем результат
+        if (profile != null) {
+            // Выводим информацию
+            printInfo(profile);
+
+            // Сохраняем в CSV
+            saveCSV(profile, "simple_profile_demo.csv");
+
+            System.out.println("\n✓ Готово! Профиль создан и сохранен.");
+        } else {
+            System.out.println("✗ Ошибка при создании профиля");
+        }
+    }
+
+    /**
+     * Главный метод для тестирования
+     */
+    public static void main(String[] args) {
+        demo();
+    }
+
+}]]></Text>
+		</JavaClass>
 	</JavaClasses>
 	<ModelResources>
 		<Resource>
@@ -875,26 +1165,6 @@ public class FullTIFFReader implements Serializable {
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 			<Location>FILE_SYSTEM</Location>
 		</Resource>
-		<Resource>
-			<Path><![CDATA[classes]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-			<Location>FILE_SYSTEM</Location>
-		</Resource>
-		<Resource>
-			<Path><![CDATA[untitled]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-			<Location>FILE_SYSTEM</Location>
-		</Resource>
-		<Resource>
-			<Path><![CDATA[untitled/src]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-			<Location>FILE_SYSTEM</Location>
-		</Resource>
-		<Resource>
-			<Path><![CDATA[java]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-			<Location>FILE_SYSTEM</Location>
-		</Resource>
 	</ModelResources>
     <RequiredLibraryReference>
 		<LibraryName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></LibraryName>
@@ -912,14 +1182,6 @@ public class FullTIFFReader implements Serializable {
 		<ResourceReference>
 			<PackageName><![CDATA[model6]]></PackageName>
 			<ClassName><![CDATA[imageio]]></ClassName>
-		</ResourceReference>
-		<Imported>false</Imported>
-		<Folder>true</Folder>
-	</ClassPathEntry>
-	<ClassPathEntry>
-		<ResourceReference>
-			<PackageName><![CDATA[model6]]></PackageName>
-			<ClassName><![CDATA[java]]></ClassName>
 		</ResourceReference>
 		<Imported>false</Imported>
 		<Folder>true</Folder>
