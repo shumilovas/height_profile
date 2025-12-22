@@ -511,18 +511,19 @@ import javax.imageio.stream.ImageInputStream;
 
 
 public class FullTIFFReader implements Serializable {
+	//массив, в котором будет храниться прочитанный файл тифф
 	private static int[][] fullPixelArray;
-	private static int[][] notfullPixelArray;
-	//public static Table3colomns
-    private static int width;
+	//ширина и высота массива тиф
+    private static int height;
+	private static int width;
+	//ширина м выбраного сегмента
     private static int width_segment;
     private static int height_segment;
-    private static int height;
+    //характерстики сегмента
     public static int x_begin;
     public static int y_begin;
     public static int x_end;
     public static int y_end;
-    //private static int x_begin;
     public static int number_segment;
 
 
