@@ -832,7 +832,7 @@ public class SimpleProfileCreator implements Serializable {
     /**
      * Создает профиль высот между двумя точками.
      *
-     * САМЫЙ ПРОСТОЙ СПОСОБ СОЗДАНИЯ ПРОФИЛЯ!
+     * 
      *
      * @param heightData массив высот из TIF файла [строка][столбец]
      * @param startX координата X начальной точки (от 0 до ширина-1)
